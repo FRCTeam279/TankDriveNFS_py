@@ -14,13 +14,6 @@ class TankDriveTeleopDefaultNFS(Command):
 
     Speed of turning will be adjusted based on throttle, and spinning one way then reversing will not happen instantly
     Also, spinning one direction and then taking throttle to full reverse will reverse the direction of turn
-
-    To ensure a more responsive robot, and to allow the full range of a joystick axis to move the robot, outside the
-    null zone, the command is configured with a parameter for setting the minimum speed necessary to actually cause
-    movement.  For example, if a given robot needs 30% power applied before it starts to move at all, this should
-    have 25% power or so set as a minimum power level.
-    When the joystick is outside it's null zone, instead of power ramping up from 0 to 1, it will start at 25% and
-    ramp up from there.
     """
 
     def __init__(self):
