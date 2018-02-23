@@ -152,8 +152,21 @@ class TankDriveTeleopDefaultNFS(Command):
             slowSide *= throttleSign
 
             if throttle == 0.0:
+                # if there's zero throttle, a turn should just spin
                 if math.fabs(fastSide) < math.fabs(slowSide):
                     fastSide = slowSide * -1.0
+            else:
+                # Stop driving the opposite direction if a tiny bit of throttle is given, and more turn is
+                # overpowering it
+                # TODO - This section is experimental
+                # It appears to do what we want, but needs more testing.  It makes the robot more inclined to spin
+                # at slow throttle speeds, but does seem to stop it driving in the reverse direction due to how turn
+                # is accomplished
+                if math.fabs(fastSide) < math.fabs(slowSide):
+                    if fastSide > 0.0:
+                        fastSide = math.fabs(slowSide)
+                    else:
+                        fastSide = math.fabs(slowSide) * -1.0
 
             if spinSign == 1.0:
                 leftSpeed = fastSide
