@@ -101,6 +101,13 @@ the tankdriveteleopdefaultnfs.py appropriately.
   * Function signature:
   * *def filterInputToPower(val, deadZone=0.0, power=2):*  
   
+  
+Note that the filter parameters shown below will give a logarithmic curve, and not exponential
+which most people will expect (if a robot requires 20-30% power applied before it starts moving
+this will actually give a better response than the typical curve).  The oi.py file has links to 
+Desmos graphs you can play with for curves.
+
+Example: [Desmos filterInputToPower Curves](https://www.desmos.com/calculator/yopfm4gkno)
 ```
 class ConfigHolder:
     pass
@@ -131,7 +138,7 @@ nfs.debugTurning = False
 
 nfs.lowTurnScale = 0.3                  # How much to reduce turn speed when driving at full throttle at
 nfs.highTurnScale = 0.2
-nfs.slowDriveSpeedFactor = 0.7          # How much to reduce max speed when driving in slow mode
+nfs.slowDriveSpeedFactor = 0.7          # Max speed when driving in slow mode
 
 nfs.minTimeFullThrottleChange = 1.5
 nfs.maxSpeedChange = (2 * 0.02) / nfs.minTimeFullThrottleChange

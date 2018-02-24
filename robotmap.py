@@ -52,9 +52,9 @@ lowTurnScale -> normal driving
 highTurnScale -> "slow" driving (while holding left trigger)
 
 """
-nfs.lowTurnScale = 0.3                  # How much to reduce turn speed when driving at full throttle at
-nfs.highTurnScale = 0.2
-nfs.slowDriveSpeedFactor = 0.7          # How much to reduce max speed when driving in slow mode
+nfs.lowTurnScale = 0.3                  # How much to reduce turn speed when driving at full throttle
+nfs.highTurnScale = 0.2                 #
+nfs.slowDriveSpeedFactor = 0.7          # Max speed when driving in slow mode
 
 """
 minTimeFullThrottleChange
