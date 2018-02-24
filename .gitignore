@@ -1,6 +1,6 @@
 #PyFRC Deployment config file
 .deploy_cfg
-.pytest_cache
+tests/.pytest_cache/
 
 #pyCharm project files
 .idea/
