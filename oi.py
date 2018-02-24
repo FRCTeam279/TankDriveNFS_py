@@ -8,12 +8,6 @@ class T16000M(Joystick):
     def __init__(self, port):
         super().__init__(port)
         self.port = port
-        # self.setAxisChannel(Joystick.AxisType.kX, 0)
-        # self.setAxisChannel(Joystick.AxisType.kY, 1)
-        # self.setAxisChannel(Joystick.AxisType.kZ, 2)
-        # self.setAxisChannel(Joystick.AxisType.kThrottle, 3)
-        # self.setAxisChannel(Joystick.AxisType.kTwist, 2)
-
         self.setXChannel(0)
         self.setYChannel(1)
         self.setZChannel(2)
@@ -57,7 +51,7 @@ def init():
 
 # https://www.desmos.com/calculator/yopfm4gkno
 # power should be > 0.1 and less than 4 or 5 ish on the outside
-#    If power is < 1.0, the curve is a logrithmic curve to give more power closer to center
+#    If power is < 1.0, the curve is a logarithmic curve to give more power closer to center
 #    Powers greater than one give a more traditional curve with less sensitivity near center
 def filterInputToPower(val, deadZone=0.0, power=2):
     power = math.fabs(power)
